@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITextFieldDelegate, GIDS
             let familyName = user.profile.familyName
             let email = user.profile.email
             // ...
+            print(email)
         }
     }
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
