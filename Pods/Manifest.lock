@@ -1,4 +1,5 @@
 PODS:
+  - GoogleAnalytics (3.17.0)
   - GoogleSignIn (4.4.0):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
@@ -14,19 +15,22 @@ PODS:
   - GTMSessionFetcher/Core (1.2.1)
 
 DEPENDENCIES:
+  - GoogleAnalytics
   - GoogleSignIn
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - GoogleAnalytics
     - GoogleSignIn
     - GoogleToolboxForMac
     - GTMSessionFetcher
 
 SPEC CHECKSUMS:
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
 
-PODFILE CHECKSUM: 3d5789f08f4e77c573433cb900f87045cf61cb25
+PODFILE CHECKSUM: 39a04267d291c13d68c8a531ed4e0e677cd11c1f
 
 COCOAPODS: 1.6.1

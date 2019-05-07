@@ -5,4 +5,6 @@ target 'Navii' do
 
 pod 'GoogleSignIn'
 
+pod 'GoogleAnalytics'
+
 end

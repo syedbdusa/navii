@@ -207,6 +207,10 @@ This application makes use of the following third party libraries:
    limitations under the License.
 
 
+## GoogleAnalytics
+
+Copyright 2016 Google
+
 ## GoogleSignIn
 
 Copyright 2018 Google
