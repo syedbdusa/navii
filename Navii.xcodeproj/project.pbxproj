@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D4AEE112281352900E45FAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D4AEE0F2281352900E45FAF /* Main.storyboard */; };
 		2D4AEE142281353500E45FAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D4AEE122281353500E45FAF /* LaunchScreen.storyboard */; };
 		2DC9CE88228118290094E5CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9CE87228118290094E5CD /* AppDelegate.swift */; };
 		2DC9CE8A228118290094E5CD /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9CE89228118290094E5CD /* art.scnassets */; };
@@ -19,11 +18,14 @@
 		2DC9CEA422811A620094E5CD /* Assets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9CEA322811A620094E5CD /* Assets.scnassets */; };
 		2DC9CEA8228124D70094E5CD /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9CEA7228124D70094E5CD /* credentials.plist */; };
 		75F73CB486218C7DF72CA3AC /* libPods-Navii.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74DE35B9AF474F33E029D74C /* libPods-Navii.a */; };
+		969859C12281377900F83329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 969859BF2281377900F83329 /* Main.storyboard */; };
+		969859C3228137DE00F83329 /* NodeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969859C2228137DE00F83329 /* NodeList.swift */; };
+		969859C52281383B00F83329 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969859C42281383B00F83329 /* Logging.swift */; };
+		969859C72281400900F83329 /* SavingAndLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969859C62281400900F83329 /* SavingAndLoading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		185390F2E212DFA28BA00877 /* Pods-Navii.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navii.release.xcconfig"; path = "Target Support Files/Pods-Navii/Pods-Navii.release.xcconfig"; sourceTree = "<group>"; };
-		2D4AEE102281352900E45FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2D4AEE132281353500E45FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DC9CE84228118290094E5CD /* Navii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC9CE87228118290094E5CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +40,10 @@
 		2DC9CEA7228124D70094E5CD /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		74DE35B9AF474F33E029D74C /* libPods-Navii.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Navii.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D7648C67262B8076C37C45E /* Pods-Navii.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navii.debug.xcconfig"; path = "Target Support Files/Pods-Navii/Pods-Navii.debug.xcconfig"; sourceTree = "<group>"; };
+		969859C02281377900F83329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		969859C2228137DE00F83329 /* NodeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeList.swift; sourceTree = "<group>"; };
+		969859C42281383B00F83329 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		969859C62281400900F83329 /* SavingAndLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingAndLoading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,18 +87,21 @@
 		2DC9CE86228118290094E5CD /* Navii */ = {
 			isa = PBXGroup;
 			children = (
+				969859BF2281377900F83329 /* Main.storyboard */,
 				2D4AEE122281353500E45FAF /* LaunchScreen.storyboard */,
-				2D4AEE0F2281352900E45FAF /* Main.storyboard */,
 				2DC9CE87228118290094E5CD /* AppDelegate.swift */,
 				2DC9CE9F22811A430094E5CD /* SnapshotAnchor.swift */,
 				2DC9CEA122811A4C0094E5CD /* Utilities.swift */,
 				2DC9CE8B228118290094E5CD /* ViewController.swift */,
+				969859C42281383B00F83329 /* Logging.swift */,
+				969859C2228137DE00F83329 /* NodeList.swift */,
 				2DC9CE9D22811A370094E5CD /* RoundedButton.swift */,
 				2DC9CEA322811A620094E5CD /* Assets.scnassets */,
 				2DC9CE89228118290094E5CD /* art.scnassets */,
 				2DC9CE902281182B0094E5CD /* Assets.xcassets */,
 				2DC9CE952281182B0094E5CD /* Info.plist */,
 				2DC9CEA7228124D70094E5CD /* credentials.plist */,
+				969859C62281400900F83329 /* SavingAndLoading.swift */,
 			);
 			path = Navii;
 			sourceTree = "<group>";
@@ -167,9 +176,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DC9CE8A228118290094E5CD /* art.scnassets in Resources */,
-				2D4AEE112281352900E45FAF /* Main.storyboard in Resources */,
 				2DC9CEA422811A620094E5CD /* Assets.scnassets in Resources */,
 				2D4AEE142281353500E45FAF /* LaunchScreen.storyboard in Resources */,
+				969859C12281377900F83329 /* Main.storyboard in Resources */,
 				2DC9CE912281182B0094E5CD /* Assets.xcassets in Resources */,
 				2DC9CEA8228124D70094E5CD /* credentials.plist in Resources */,
 			);
@@ -231,29 +240,32 @@
 			files = (
 				2DC9CE8C228118290094E5CD /* ViewController.swift in Sources */,
 				2DC9CE9E22811A380094E5CD /* RoundedButton.swift in Sources */,
+				969859C72281400900F83329 /* SavingAndLoading.swift in Sources */,
 				2DC9CEA022811A430094E5CD /* SnapshotAnchor.swift in Sources */,
+				969859C52281383B00F83329 /* Logging.swift in Sources */,
 				2DC9CEA222811A4D0094E5CD /* Utilities.swift in Sources */,
 				2DC9CE88228118290094E5CD /* AppDelegate.swift in Sources */,
+				969859C3228137DE00F83329 /* NodeList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2D4AEE0F2281352900E45FAF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2D4AEE102281352900E45FAF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2D4AEE122281353500E45FAF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2D4AEE132281353500E45FAF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		969859BF2281377900F83329 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				969859C02281377900F83329 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -381,13 +393,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4WKSRY778H;
+				DEVELOPMENT_TEAM = WE7TEJH8DL;
 				INFOPLIST_FILE = Navii/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.navii.Navii;
+				PRODUCT_BUNDLE_IDENTIFIER = io.navii;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -400,13 +412,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4WKSRY778H;
+				DEVELOPMENT_TEAM = WE7TEJH8DL;
 				INFOPLIST_FILE = Navii/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.navii.Navii;
+				PRODUCT_BUNDLE_IDENTIFIER = io.navii;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -145,7 +145,7 @@ extension SCNNode {
         let av = SCNVector3( (ov.x + nv.x)/2.0, (ov.y+nv.y)/2.0, (ov.z+nv.z)/2.0)
         
         //normalized axis vector
-        let av_normalized = normalizeVector(av)
+        let av_normalized = SCNVector3.normalizeVector(av)
         let q0 = Float(0.0) //cos(angel/2), angle is always 180 or M_PI
         let q1 = Float(av_normalized.x) // x' * sin(angle/2)
         let q2 = Float(av_normalized.y) // y' * sin(angle/2)
@@ -206,5 +206,30 @@ extension simd_float4x4 {
 extension SCNVector3 {
     func length() -> Float {
         return sqrtf(x * x + y * y + z * z)
+    }
+    
+    static func normalizeVector(_ iv: SCNVector3) -> SCNVector3 {
+        let length = sqrt(iv.x * iv.x + iv.y * iv.y + iv.z * iv.z)
+        if length == 0 {
+            return SCNVector3(0.0, 0.0, 0.0)
+        }
+        
+        return SCNVector3( iv.x / length, iv.y / length, iv.z / length)
+        
+    }
+    static func - (l: SCNVector3, r: SCNVector3) -> SCNVector3 {
+        return SCNVector3Make(l.x - r.x, l.y - r.y, l.z - r.z)
+    }
+    
+    
+    func lineFrom(vector vector1: SCNVector3, toVector vector2: SCNVector3) -> SCNGeometry {
+        
+        let indices: [Int32] = [0, 1]
+        
+        let source = SCNGeometrySource(vertices: [vector1, vector2])
+        let element = SCNGeometryElement(indices: indices, primitiveType: .line)
+        
+        return SCNGeometry(sources: [source], elements: [element])
+        
     }
 }

@@ -9,88 +9,9 @@ import UIKit
 import SceneKit
 import ARKit
 
-
-struct Node: Comparable {
-    // structure definition goes here
-    var value: Int
-    var distance: Double
-    
-    var back: Int
-    static func < (left: Node, right: Node) -> Bool {
-        return left.distance < right.distance
-    }
-    static func == (left: Node, right: Node) -> Bool {
-        return left.distance == right.distance
-    }
-}
-struct NodeList {
-    var fringe : [Node]
-    mutating func add(newNode: Node) {
-        let index = findIndex(newNode: newNode)
-        fringe.insert(newNode, at: index)
-    }
-    mutating func pop() -> Node{
-        return fringe.remove(at: 0)
-    }
-    func count() -> Int{
-        return fringe.count
-    }
-    func findIndex(newNode: Node) -> Int{
-        if(fringe.count == 0) {
-            return 0
-        }
-        var low = 0
-        var high = fringe.count - 1
-        while(low <= high) {
-            let mid = (low + high) / 2
-            if(fringe[mid] < newNode) {
-                low = mid + 1
-            } else if(newNode < fringe[mid]) {
-                high = mid - 1
-            } else {
-                return mid
-            }
-        }
-        return low
-    }
-}
-func normalizeVector(_ iv: SCNVector3) -> SCNVector3 {
-    let length = sqrt(iv.x * iv.x + iv.y * iv.y + iv.z * iv.z)
-    if length == 0 {
-        return SCNVector3(0.0, 0.0, 0.0)
-    }
-    
-    return SCNVector3( iv.x / length, iv.y / length, iv.z / length)
-    
-}
-func - (l: SCNVector3, r: SCNVector3) -> SCNVector3 {
-    return SCNVector3Make(l.x - r.x, l.y - r.y, l.z - r.z)
-}
-
-final class LogDestination: TextOutputStream {
-    var path: URL
-    init(url saveURL: URL) {
-        path = saveURL
-    }
-    
-    func write(_ string: String) {
-        do {
-            if let data = string.data(using: .utf8){
-                let fileHandle = try FileHandle(forWritingTo: path)
-                fileHandle.seekToEndOfFile()
-                fileHandle.write(data)
-                fileHandle.closeFile()
-            }
-        } catch {
-            fatalError("saving debug INFO to \(path) went wrong")
-        }
-    }
-}
-
-
 class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UITextFieldDelegate {
-    // MARK: - IBOutlets
     
+    // MARK: - IBOutlets
     @IBOutlet weak var toggle: UISwitch!
     @IBOutlet weak var GoButton: UIButton!
     @IBOutlet weak var sessionInfoView: UIView!
@@ -213,16 +134,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
     // MARK: - ARSCNViewDelegate
     
     
-    func lineFrom(vector vector1: SCNVector3, toVector vector2: SCNVector3) -> SCNGeometry {
-        
-        let indices: [Int32] = [0, 1]
-        
-        let source = SCNGeometrySource(vertices: [vector1, vector2])
-        let element = SCNGeometryElement(indices: indices, primitiveType: .line)
-        
-        return SCNGeometry(sources: [source], elements: [element])
-        
-    }
     
     /// - Tag: RestoreVirtualContent
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
@@ -253,22 +164,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
         } else {
             return
         }
-        
-
-//        // save the reference to the virtual object anchor when the anchor is added from relocalizing
-//        if virtualObjectAnchor == nil {
-//            virtualObjectAnchor = anchor
-//        }
-//        node.addChildNode(virtualObject)
-
-        // save the reference to the virtual object anchor when the anchor is added from relocalizing
-//        if virtualObjectAnchor == nil {
-//            virtualObjectAnchor = anchor
-//        }
-        
-        //path = [0,1,3]
-        
-        
     }
     
     
@@ -281,13 +176,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
     
     
     func navigate(start: Int, end: Int) {
-        
-    
-        
-//        var positions : [SCNVector3] = []
-//        for anchor in anchors{
-//            positions.append(anchor!.transform.position())
-//        }
         var visited : [Bool] = []
         var prev : [Int] = []
         var dists : [Double] = []
@@ -342,7 +230,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
         switch frame.worldMappingStatus {
         case .extending, .mapped:
             saveExperienceButton.isEnabled = counter > 0
-                //virtualObjectAnchor != nil //&& frame.anchors.contains(virtualObjectAnchor!)
         default:
             saveExperienceButton.isEnabled = false
         }
@@ -437,31 +324,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
         dict[name] = counter - 1
         print(dict)
     }
-    @IBAction func touchInside(_ sender: UIButton) {
+    @IBAction func generateRoute(_ sender: UIButton) {
         self.view.endEditing(true)
-        //let currentPosition = pointOfView.position + (dir * 0.1)
-        //print(sceneView.session)
-        
-        //var tempAnchor: ARAnchor? = ARAnchor(name: "Temp", transform: mat)
-        //path = [0,1,3]
-        
-//        if (!added_neighbors) {
-////            neighbors.append([1])
-////            neighbors.append([0,3,2])
-////            neighbors.append([1])
-////            neighbors.append([1,4,5])
-////            neighbors.append([3])
-////            neighbors.append([3])
-//            neighbors.append([1,4])
-//            neighbors.append([0,2])
-//            neighbors.append([1,3])
-//            neighbors.append([2,4])
-//            neighbors.append([0,3])
-//
-//
-//
-//            added_neighbors = true
-//        }
         for x in sceneView.scene.rootNode.childNodes{
             if (x.name != nil) {
                 x.removeFromParentNode()
@@ -470,8 +334,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
         var i = 0
         if (flip) {
             let endString = EndNode.text!.lowercased()
-            //var dict = ["bathroom": 0, "workspace": 2 , "elevator": 4, "big room": 5]
-//            var dict = ["bathroom": 0, "elevator": 16, "chex mix": 10, "workspace": 6,"bar": 10,"atlassian": 12]
             var currentPos = sceneView.session.currentFrame!.camera.transform.position()
             var minDist : Float
             minDist = 99999999.9
@@ -489,16 +351,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
                 }
                 i += 1
             }
-            //print(minPlace)
-            
-            //let a:Int? = Int(StartNode.text!)
             
             if let val = dict[endString] {
-                // now val is not nil and the Optional has been unwrapped, so use it
-                //print(val)
                 navigate(start: minPlace,end: val)
             } else if let b = Int(endString){
-                //let b:Int? = Int(endString)
                 if b >= counter || b < 0{
                     return
                 }
@@ -512,8 +368,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
             glLineWidth(500)
             i = 0
             while(i < path.count - 1) {
-                //let line = lineFrom(vector: anchors[path[i]]!.transform.position(), toVector: anchors[path[i + 1]]!.transform.position())
-                //let lineNode = SCNNode(geometry: line)
                 let twoPointsNode1 = SCNNode()
                 sceneView.scene.rootNode.addChildNode(twoPointsNode1.buildLineInTwoPointsWithRotation(
                     from: anchors[path[i]]!.transform.position(), to: anchors[path[i + 1]]!.transform.position(), radius: 0.05, color: .cyan))
@@ -521,9 +375,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
                 twoPointsNode1.name="yump"
                 print("rendering path lines")
                 print(twoPointsNode1)
-                //sceneView.scene.rootNode.addChildNode(twoPointsNode1)
                 i+=1
-                //lineNodes.append(twoPointsNode1)
             }
             currentPos.y = anchors[minPlace]!.transform.position().y
             let twoPointsNode1 = SCNNode()
@@ -531,23 +383,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
                 from: anchors[minPlace]!.transform.position(), to: currentPos, radius: 0.05, color: .cyan))
             twoPointsNode1.geometry?.firstMaterial?.diffuse.contents = lineColor
             twoPointsNode1.name="yump"
-            //sceneView.scene.rootNode.addChildNode(twoPointsNode1)
             print("path:")
             print(path)
-            
-            
         }
-//        else {
-//            for x in lineNodes {
-//                sceneView.scene.rootNode.addChildNode(x)
-//            }
-//
-//        }
         flip = !flip
-
-
         
-}
+    }
     
     @IBAction func toggleCups(_ sender: Any) {
         if !toggle.isOn {
@@ -566,8 +407,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
             self.saveName.isHidden = true
             self.saveExperienceButton.isHidden = true
             self.resetButton.isHidden = true
-        }
-        else {
+        } else {
             // user is editing map
             for a in anchorNodes{
                 sceneView.scene.rootNode.addChildNode(a)
@@ -586,7 +426,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.touchInside(GoButton)
+        self.generateRoute(GoButton)
         self.goClearSwitch(GoButton)
         self.view.endEditing(true)
         return true
@@ -601,11 +441,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
             guard let map = worldMap
                 else { self.showAlert(title: "Can't get current world map", message: error!.localizedDescription); return }
             
-            // Add a snapshot image indicating where the map was captured.
-//            guard let snapshotAnchor = SnapshotAnchor(capturing: self.sceneView)
-//                else { fatalError("Can't take snapshot") }
-//            map.anchors.append(snapshotAnchor)
-//
             // save anchors
             do {
                 //print("BEFORE")
@@ -708,15 +543,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
             }
         }()
         
-        // Display the snapshot image stored in the world map to aid user in relocalizing.
-//        if let snapshotData = worldMap.snapshotAnchor?.imageData,
-//            let snapshot = UIImage(data: snapshotData) {
-//        } else {
-//            print("No snapshot image in world map")
-//        }
-        // Remove the snapshot anchor from the world map since we do not need it in the scene.
-        //worldMap.anchors.removeAll(where: { $0 is SnapshotAnchor })
-        //anchors = worldMap.anchors
         print("before")
         print(worldMap)
         anchors = []
@@ -804,12 +630,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
         switch (trackingState, frame.worldMappingStatus) {
         case (.normal, .mapped),
              (.normal, .extending):
-            if frame.anchors.contains(where: { $0.name == virtualObjectAnchorName }) {
-                // User has placed an object in scene and the session is mapped, prompt them to save the experience
-                message = "Tap 'Save Experience' to save the current map."
-            } else {
-                message = "Tap on the screen to place an object."
-            }
+            message = ""
             GoButton.backgroundColor = UIColor.green
             
         case (.normal, _) where mapDataFromFile != nil && !isRelocalizingMap:
@@ -852,12 +673,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
             .first
             else { return }
         
-        // Remove exisitng anchor and add new anchor
-//        if let existingAnchor = virtualObjectAnchor {
-//            sceneView.session.remove(anchor: existingAnchor)
-//        }
-        
-        
         if addCup.isOn {
             rendered.append(false)
             anchors.append(ARAnchor(name: String(counter), transform: hitTestResult.worldTransform))
@@ -867,12 +682,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
             counter+=1
             print(dict)
         } else if addLine.isOn {
-//            print(hitTestResult)
             let v1 = hitTestResult.worldTransform.position()
-            //            if v1 == nil {
-            //                cupNumberDisplay.text = "Nil"
-            //                return
-            //            }
             let dist = anchors.map {(v1 - $0!.transform.position()).length()}
             print("dist to anchors")
             print(dist)
@@ -887,7 +697,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
                         from: prevSelectedCup!.transform.position(), to: (cup?.transform.position())!, radius: 0.05, color: .cyan))
                     twoPointsNode1.geometry?.firstMaterial?.diffuse.contents = UIColor.green
                     twoPointsNode1.name="lineNodeAnchor"
-//                    lineNodes.append(twoPointsNode1)
                     let cupInd = anchors.firstIndex(of: cup)!
                     let prevInd = anchors.firstIndex(of: prevSelectedCup)!
                     neighbors[cupInd].append(prevInd)
@@ -937,21 +746,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
         }
     }
     
-    
-    
-    var virtualObjectAnchor: ARAnchor?
-    let virtualObjectAnchorName = "virtualObject"
 
-    var virtualObject: SCNNode = {
-        guard let sceneURL = Bundle.main.url(forResource: "cup", withExtension: "scn", subdirectory: "Assets.scnassets/cup"),
-            let referenceNode = SCNReferenceNode(url: sceneURL) else {
-                fatalError("can't load virtual object")
-        }
-        referenceNode.load()
-        referenceNode.name = "yump"
-        
-        return referenceNode
-    }()
-    
 }
 
