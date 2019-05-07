@@ -8,8 +8,11 @@ Main view controller for the AR experience.
 import UIKit
 import SceneKit
 import ARKit
+import GoogleSignIn
 
-class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UITextFieldDelegate {
+
+
+class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UITextFieldDelegate, GIDSignInUIDelegate{
     
     // MARK: - IBOutlets
     @IBOutlet weak var toggle: UISwitch!
@@ -31,7 +34,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
     @IBOutlet weak var cupNameDecider: UITextField!
     @IBOutlet weak var saveName: UIButton!
     @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var SignIn: GIDSignInButton!
     
+    @IBOutlet weak var SignInTest: GIDSignInButton!
     @IBAction func addCupClicked(_ sender: UISwitch) {
         addCup.setOn(true, animated: true)
         addLine.setOn(false, animated: true)
@@ -87,6 +92,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
         GoButton.layer.cornerRadius = 4
         // Read in any already saved map to see if we can load one.
         self.EndNode.delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signInSilently()
+        let signInButton = GIDSignInButton()
+        signInButton.center = view.center
         if mapDataFromFile != nil {
             self.loadExperienceButton.isHidden = false
         }
