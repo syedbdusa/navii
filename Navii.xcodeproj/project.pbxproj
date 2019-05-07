@@ -7,35 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D4AEE112281352900E45FAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D4AEE0F2281352900E45FAF /* Main.storyboard */; };
+		2D4AEE142281353500E45FAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D4AEE122281353500E45FAF /* LaunchScreen.storyboard */; };
 		2DC9CE88228118290094E5CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9CE87228118290094E5CD /* AppDelegate.swift */; };
 		2DC9CE8A228118290094E5CD /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9CE89228118290094E5CD /* art.scnassets */; };
 		2DC9CE8C228118290094E5CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9CE8B228118290094E5CD /* ViewController.swift */; };
-		2DC9CE8F228118290094E5CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9CE8D228118290094E5CD /* Main.storyboard */; };
 		2DC9CE912281182B0094E5CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9CE902281182B0094E5CD /* Assets.xcassets */; };
-		2DC9CE942281182B0094E5CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9CE922281182B0094E5CD /* LaunchScreen.storyboard */; };
 		2DC9CE9E22811A380094E5CD /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9CE9D22811A370094E5CD /* RoundedButton.swift */; };
 		2DC9CEA022811A430094E5CD /* SnapshotAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9CE9F22811A430094E5CD /* SnapshotAnchor.swift */; };
 		2DC9CEA222811A4D0094E5CD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9CEA122811A4C0094E5CD /* Utilities.swift */; };
 		2DC9CEA422811A620094E5CD /* Assets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9CEA322811A620094E5CD /* Assets.scnassets */; };
-		2DC9CEA622811A690094E5CD /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9CEA522811A690094E5CD /* Base.lproj */; };
+		2DC9CEA8228124D70094E5CD /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9CEA7228124D70094E5CD /* credentials.plist */; };
 		75F73CB486218C7DF72CA3AC /* libPods-Navii.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74DE35B9AF474F33E029D74C /* libPods-Navii.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		185390F2E212DFA28BA00877 /* Pods-Navii.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navii.release.xcconfig"; path = "Target Support Files/Pods-Navii/Pods-Navii.release.xcconfig"; sourceTree = "<group>"; };
+		2D4AEE102281352900E45FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2D4AEE132281353500E45FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DC9CE84228118290094E5CD /* Navii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC9CE87228118290094E5CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DC9CE89228118290094E5CD /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		2DC9CE8B228118290094E5CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2DC9CE8E228118290094E5CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2DC9CE902281182B0094E5CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2DC9CE932281182B0094E5CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DC9CE952281182B0094E5CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DC9CE9D22811A370094E5CD /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		2DC9CE9F22811A430094E5CD /* SnapshotAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotAnchor.swift; sourceTree = "<group>"; };
 		2DC9CEA122811A4C0094E5CD /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		2DC9CEA322811A620094E5CD /* Assets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Assets.scnassets; sourceTree = "<group>"; };
-		2DC9CEA522811A690094E5CD /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
+		2DC9CEA7228124D70094E5CD /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		74DE35B9AF474F33E029D74C /* libPods-Navii.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Navii.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D7648C67262B8076C37C45E /* Pods-Navii.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navii.debug.xcconfig"; path = "Target Support Files/Pods-Navii/Pods-Navii.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +81,8 @@
 		2DC9CE86228118290094E5CD /* Navii */ = {
 			isa = PBXGroup;
 			children = (
+				2D4AEE122281353500E45FAF /* LaunchScreen.storyboard */,
+				2D4AEE0F2281352900E45FAF /* Main.storyboard */,
 				2DC9CE87228118290094E5CD /* AppDelegate.swift */,
 				2DC9CE9F22811A430094E5CD /* SnapshotAnchor.swift */,
 				2DC9CEA122811A4C0094E5CD /* Utilities.swift */,
@@ -89,10 +91,8 @@
 				2DC9CEA322811A620094E5CD /* Assets.scnassets */,
 				2DC9CE89228118290094E5CD /* art.scnassets */,
 				2DC9CE902281182B0094E5CD /* Assets.xcassets */,
-				2DC9CEA522811A690094E5CD /* Base.lproj */,
-				2DC9CE8D228118290094E5CD /* Main.storyboard */,
-				2DC9CE922281182B0094E5CD /* LaunchScreen.storyboard */,
 				2DC9CE952281182B0094E5CD /* Info.plist */,
+				2DC9CEA7228124D70094E5CD /* credentials.plist */,
 			);
 			path = Navii;
 			sourceTree = "<group>";
@@ -167,11 +167,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DC9CE8A228118290094E5CD /* art.scnassets in Resources */,
+				2D4AEE112281352900E45FAF /* Main.storyboard in Resources */,
 				2DC9CEA422811A620094E5CD /* Assets.scnassets in Resources */,
-				2DC9CE942281182B0094E5CD /* LaunchScreen.storyboard in Resources */,
+				2D4AEE142281353500E45FAF /* LaunchScreen.storyboard in Resources */,
 				2DC9CE912281182B0094E5CD /* Assets.xcassets in Resources */,
-				2DC9CEA622811A690094E5CD /* Base.lproj in Resources */,
-				2DC9CE8F228118290094E5CD /* Main.storyboard in Resources */,
+				2DC9CEA8228124D70094E5CD /* credentials.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,18 +240,18 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2DC9CE8D228118290094E5CD /* Main.storyboard */ = {
+		2D4AEE0F2281352900E45FAF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2DC9CE8E228118290094E5CD /* Base */,
+				2D4AEE102281352900E45FAF /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		2DC9CE922281182B0094E5CD /* LaunchScreen.storyboard */ = {
+		2D4AEE122281353500E45FAF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2DC9CE932281182B0094E5CD /* Base */,
+				2D4AEE132281353500E45FAF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

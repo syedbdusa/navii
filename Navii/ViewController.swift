@@ -8,7 +8,6 @@ Main view controller for the AR experience.
 import UIKit
 import SceneKit
 import ARKit
-import GoogleSignIn
 
 
 struct Node: Comparable {

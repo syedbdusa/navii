@@ -42,7 +42,7 @@
                                         <inset key="contentEdgeInsets" minX="13" minY="8" maxX="13" maxY="8"/>
                                         <state key="normal" title="Load Experience"/>
                                         <connections>
-                                            <action selector="loadExperience:" destination="7dh-A0-qGE" eventType="touchUpInside" id="Xac-0y-p4U"/>
+                                            <action selector="loadExperience:" destination="7dh-A0-qGE" eventType="touchUpInside" id="fRF-wQ-vqu"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gad-7G-M17" customClass="RoundedButton" customModule="Navii" customModuleProvider="target">
@@ -51,7 +51,7 @@
                                         <inset key="contentEdgeInsets" minX="13" minY="8" maxX="13" maxY="8"/>
                                         <state key="normal" title="Save Experience"/>
                                         <connections>
-                                            <action selector="saveExperience:" destination="7dh-A0-qGE" eventType="touchUpInside" id="LXd-41-0lM"/>
+                                            <action selector="saveExperience:" destination="7dh-A0-qGE" eventType="touchUpInside" id="4gB-5I-bDH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -97,7 +97,7 @@
                                 <state key="selected" image="restartPressed"/>
                                 <state key="highlighted" image="restartPressed"/>
                                 <connections>
-                                    <action selector="resetTracking:" destination="7dh-A0-qGE" eventType="touchUpInside" id="OJ4-o7-irp"/>
+                                    <action selector="resetTracking:" destination="7dh-A0-qGE" eventType="touchUpInside" id="5Zz-xR-9pL"/>
                                 </connections>
                             </button>
                             <visualEffectView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uZF-S8-SMn" userLabel="Mapping Status View">
@@ -107,7 +107,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mapping: Limited Tracking: Initializing" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aD6-EU-VHg">
-                                            <rect key="frame" x="8" y="8" width="150.66666666666666" height="40.666666666666664"/>
+                                            <rect key="frame" x="7.9999999999999858" y="8" width="150.66666666666663" height="40.666666666666664"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -134,7 +134,7 @@
                                 <rect key="frame" x="20" y="41" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="toggleCups:" destination="7dh-A0-qGE" eventType="valueChanged" id="Y7p-6T-f9W"/>
+                                    <action selector="toggleCups:" destination="7dh-A0-qGE" eventType="valueChanged" id="Ewa-dg-deo"/>
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INC-e5-gPY">
@@ -181,28 +181,28 @@
                                 <rect key="frame" x="53" y="134" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="addCupClicked:" destination="7dh-A0-qGE" eventType="valueChanged" id="d9m-uo-0bN"/>
+                                    <action selector="addCupClicked:" destination="7dh-A0-qGE" eventType="valueChanged" id="hUS-et-7vq"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rSQ-kW-aou">
                                 <rect key="frame" x="168" y="134" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="rmCupClicked:" destination="7dh-A0-qGE" eventType="valueChanged" id="W82-xc-ZbJ"/>
+                                    <action selector="rmCupClicked:" destination="7dh-A0-qGE" eventType="valueChanged" id="Vsf-T6-cLA"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="l6e-iw-tEG">
                                 <rect key="frame" x="110" y="134" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="addLineClicked:" destination="7dh-A0-qGE" eventType="valueChanged" id="GmL-u4-PWx"/>
+                                    <action selector="addLineClicked:" destination="7dh-A0-qGE" eventType="valueChanged" id="6an-kK-6XJ"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gVN-qN-6F0">
                                 <rect key="frame" x="223" y="134" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="rmLineClicked:" destination="7dh-A0-qGE" eventType="valueChanged" id="lFg-e6-yY5"/>
+                                    <action selector="rmLineClicked:" destination="7dh-A0-qGE" eventType="valueChanged" id="rsB-Ey-EvA"/>
                                 </connections>
                             </switch>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0l-XX-P73">
@@ -221,7 +221,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveName:" destination="7dh-A0-qGE" eventType="touchUpInside" id="PP5-kN-AXi"/>
+                                    <action selector="saveName:" destination="7dh-A0-qGE" eventType="touchUpInside" id="TSA-w5-grQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -246,30 +246,30 @@
                         <viewLayoutGuide key="safeArea" id="71x-2l-AWw"/>
                     </view>
                     <connections>
-                        <outlet property="EndNode" destination="CZ7-XV-Pmr" id="Atd-nX-8qh"/>
-                        <outlet property="GoButton" destination="INC-e5-gPY" id="Hw8-K8-dxN"/>
-                        <outlet property="addCup" destination="Bqy-4C-f3N" id="Bar-cu-4JY"/>
-                        <outlet property="addLine" destination="l6e-iw-tEG" id="AJK-zb-nU2"/>
-                        <outlet property="cupNameDecider" destination="e0l-XX-P73" id="cQT-0q-Fnj"/>
-                        <outlet property="loadExperienceButton" destination="6uy-QG-6J9" id="ztL-gU-Vqq"/>
-                        <outlet property="resetButton" destination="cOo-FY-E3u" id="pQ5-9a-wxn"/>
-                        <outlet property="rmCup" destination="rSQ-kW-aou" id="fHN-tH-g6g"/>
-                        <outlet property="rmLine" destination="gVN-qN-6F0" id="KQL-Ir-SI7"/>
-                        <outlet property="saveExperienceButton" destination="gad-7G-M17" id="yj3-eb-u44"/>
-                        <outlet property="saveName" destination="Kay-uf-GzT" id="lKf-5W-fVI"/>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="sgr-g8-kdG"/>
-                        <outlet property="sessionInfoLabel" destination="hCE-IA-wLv" id="fqx-0o-IdX"/>
+                        <outlet property="EndNode" destination="CZ7-XV-Pmr" id="ie0-rQ-dVU"/>
+                        <outlet property="GoButton" destination="INC-e5-gPY" id="WHG-Y6-uFs"/>
+                        <outlet property="addCup" destination="Bqy-4C-f3N" id="Ghx-77-xgc"/>
+                        <outlet property="addLine" destination="l6e-iw-tEG" id="J6S-dp-osX"/>
+                        <outlet property="cupNameDecider" destination="e0l-XX-P73" id="p7z-NP-9Ea"/>
+                        <outlet property="loadExperienceButton" destination="6uy-QG-6J9" id="y4S-W9-yLv"/>
+                        <outlet property="resetButton" destination="cOo-FY-E3u" id="OEh-Bb-VxW"/>
+                        <outlet property="rmCup" destination="rSQ-kW-aou" id="fBC-0L-ceb"/>
+                        <outlet property="rmLine" destination="gVN-qN-6F0" id="qxx-mZ-GAU"/>
+                        <outlet property="saveExperienceButton" destination="gad-7G-M17" id="Wp4-EY-Hvd"/>
+                        <outlet property="saveName" destination="Kay-uf-GzT" id="eIK-uz-XUt"/>
+                        <outlet property="sceneView" destination="BrB-h1-WRS" id="nU4-Sx-xXo"/>
+                        <outlet property="sessionInfoLabel" destination="hCE-IA-wLv" id="JKU-m1-uAt"/>
                         <outlet property="sessionInfoView" destination="37h-bD-Iyn" id="e6g-gN-reW"/>
-                        <outlet property="statusLabel" destination="aD6-EU-VHg" id="XNR-tR-am9"/>
-                        <outlet property="toggle" destination="ylL-sQ-llr" id="LS4-9j-ioG"/>
-                        <outletCollection property="editingMapLabels" destination="bGv-Td-cXA" collectionClass="NSMutableArray" id="Jla-Kh-by4"/>
-                        <outletCollection property="editingMapLabels" destination="2kd-td-kbB" collectionClass="NSMutableArray" id="3M8-09-JXy"/>
-                        <outletCollection property="editingMapLabels" destination="bIH-7s-iCR" collectionClass="NSMutableArray" id="vVa-DY-10w"/>
-                        <outletCollection property="editingMapLabels" destination="aWq-QD-qXt" collectionClass="NSMutableArray" id="SDx-d6-FpA"/>
-                        <outletCollection property="editingMapButtons" destination="Bqy-4C-f3N" collectionClass="NSMutableArray" id="scI-lv-Oqm"/>
-                        <outletCollection property="editingMapButtons" destination="rSQ-kW-aou" collectionClass="NSMutableArray" id="uwB-tL-S1v"/>
-                        <outletCollection property="editingMapButtons" destination="l6e-iw-tEG" collectionClass="NSMutableArray" id="tsW-GL-fPO"/>
-                        <outletCollection property="editingMapButtons" destination="gVN-qN-6F0" collectionClass="NSMutableArray" id="LmQ-gz-92Y"/>
+                        <outlet property="statusLabel" destination="aD6-EU-VHg" id="kHj-yE-tfb"/>
+                        <outlet property="toggle" destination="ylL-sQ-llr" id="hQF-oy-VuA"/>
+                        <outletCollection property="editingMapButtons" destination="Bqy-4C-f3N" collectionClass="NSMutableArray" id="qZI-uC-kC1"/>
+                        <outletCollection property="editingMapLabels" destination="bGv-Td-cXA" collectionClass="NSMutableArray" id="wZJ-Rd-tkb"/>
+                        <outletCollection property="editingMapLabels" destination="bIH-7s-iCR" collectionClass="NSMutableArray" id="iCL-gG-bTG"/>
+                        <outletCollection property="editingMapLabels" destination="2kd-td-kbB" collectionClass="NSMutableArray" id="6V2-pG-VsF"/>
+                        <outletCollection property="editingMapLabels" destination="aWq-QD-qXt" collectionClass="NSMutableArray" id="xTB-H8-VZg"/>
+                        <outletCollection property="editingMapButtons" destination="l6e-iw-tEG" collectionClass="NSMutableArray" id="ikz-ph-TG8"/>
+                        <outletCollection property="editingMapButtons" destination="rSQ-kW-aou" collectionClass="NSMutableArray" id="KYl-YW-hEC"/>
+                        <outletCollection property="editingMapButtons" destination="gVN-qN-6F0" collectionClass="NSMutableArray" id="PsK-zo-vsy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvH-ud-t1P" userLabel="First Responder" sceneMemberID="firstResponder"/>
