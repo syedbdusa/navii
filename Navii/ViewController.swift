@@ -12,7 +12,7 @@ import GoogleSignIn
 
 
 
-class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UITextFieldDelegate, GIDSignInUIDelegate{
+class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, GIDSignInUIDelegate{
     
     // MARK: - IBOutlets
     @IBOutlet weak var toggle: UISwitch!
@@ -35,15 +35,31 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
     @IBOutlet weak var saveName: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var SignIn: GIDSignInButton!
+    @IBOutlet weak var tblSearchList: UITableView!
     
     @IBOutlet weak var SignInTest: GIDSignInButton!
+    var searchTerms:[String] = Array()
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchTerms.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+    
+        var cell = tableView.dequeueReusableCell(withIdentifier: "searches")
+        if cell == nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: "searches")
+        }
+        cell?.textLabel?.text = searchTerms[indexPath.row]
+        return cell!
+    }
+    
     @IBAction func addCupClicked(_ sender: UISwitch) {
         addCup.setOn(true, animated: true)
         addLine.setOn(false, animated: true)
         rmLine.setOn(false, animated: true)
         rmCup.setOn(false, animated: true)
     }
-    @IBAction func addLineClicked(_ sender: UISwitch) {
+    @IBAction func fsdvsafd(_ sender: UISwitch) {
         prevSelectedCup = nil
         addCup.setOn(false, animated: true)
         addLine.setOn(true, animated: true)
@@ -86,6 +102,23 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
     override var shouldAutorotate: Bool {
         return false
     }
+    @IBAction func searchRecordstest(_ textField: UITextField) {
+        self.searchTerms.removeAll()
+        print("REACHED THIS")
+        if textField.text?.count != 0 {
+            for term in dict.keys {
+                if let requested = textField.text {
+                    let range = term.lowercased().range(of: requested, options: .caseInsensitive, range: nil, locale: nil)
+                    if range != nil {
+                        self.searchTerms.append(term)
+                    }
+                }
+                
+            }
+        }
+        print(self.searchTerms)
+        tblSearchList.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,11 +129,16 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
         GIDSignIn.sharedInstance().signInSilently()
         let signInButton = GIDSignInButton()
         signInButton.center = view.center
+        tblSearchList.delegate = self
+        tblSearchList.dataSource = self
+        searchTerms.append("TITTIES")
+        EndNode.addTarget(self, action: #selector(searchRecordstest(_ :)), for: .editingChanged)
         if mapDataFromFile != nil {
             self.loadExperienceButton.isHidden = false
         }
         
     }
+    
     
     
     override func viewDidAppear(_ animated: Bool) {
