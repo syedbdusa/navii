@@ -59,7 +59,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
         rmLine.setOn(false, animated: true)
         rmCup.setOn(false, animated: true)
     }
-    @IBAction func fsdvsafd(_ sender: UISwitch) {
+    @IBAction func addLineClicked(_ sender: UISwitch) {
         prevSelectedCup = nil
         addCup.setOn(false, animated: true)
         addLine.setOn(true, animated: true)
@@ -139,7 +139,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
         
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        EndNode.text = searchTerms[indexPath.row]
+        searchRecordstest(EndNode)
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
