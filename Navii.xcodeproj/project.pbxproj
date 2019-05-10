@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D4AEE142281353500E45FAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D4AEE122281353500E45FAF /* LaunchScreen.storyboard */; };
+		2D73A4322284ED6F009FAC33 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D73A4312284ED6F009FAC33 /* GoogleService-Info.plist */; };
 		2DC9CE88228118290094E5CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9CE87228118290094E5CD /* AppDelegate.swift */; };
 		2DC9CE8A228118290094E5CD /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9CE89228118290094E5CD /* art.scnassets */; };
 		2DC9CE8C228118290094E5CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9CE8B228118290094E5CD /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		185390F2E212DFA28BA00877 /* Pods-Navii.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navii.release.xcconfig"; path = "Target Support Files/Pods-Navii/Pods-Navii.release.xcconfig"; sourceTree = "<group>"; };
 		2D4AEE132281353500E45FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2D73A4312284ED6F009FAC33 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2DC9CE84228118290094E5CD /* Navii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC9CE87228118290094E5CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DC9CE89228118290094E5CD /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				2DC9CE8B228118290094E5CD /* ViewController.swift */,
 				969859C42281383B00F83329 /* Logging.swift */,
 				969859C2228137DE00F83329 /* NodeList.swift */,
+				2D73A4312284ED6F009FAC33 /* GoogleService-Info.plist */,
 				2DC9CE9D22811A370094E5CD /* RoundedButton.swift */,
 				2DC9CEA322811A620094E5CD /* Assets.scnassets */,
 				2DC9CE89228118290094E5CD /* art.scnassets */,
@@ -181,6 +184,7 @@
 				969859C12281377900F83329 /* Main.storyboard in Resources */,
 				2DC9CE912281182B0094E5CD /* Assets.xcassets in Resources */,
 				2DC9CEA8228124D70094E5CD /* credentials.plist in Resources */,
+				2D73A4322284ED6F009FAC33 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

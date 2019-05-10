@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleSignIn
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITextFieldDelegate, GIDSignInDelegate {
@@ -14,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITextFieldDelegate, GIDS
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         GIDSignIn.sharedInstance().clientID = "352466143741-f604edd0mub0mofjqld24ras537qqgum.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
+        FirebaseApp.configure()
         return true
         
     }

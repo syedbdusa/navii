@@ -9,6 +9,7 @@ import UIKit
 import SceneKit
 import ARKit
 import GoogleSignIn
+import Firebase
 
 
 
@@ -496,7 +497,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
                 //print("BEFORE")
                 //print(map.anchors)
                 let data = try NSKeyedArchiver.archivedData(withRootObject: map, requiringSecureCoding: true)
-                try data.write(to: self.mapSaveURL, options: [.atomic])
+                let storage = Storage.storage()
+                let storageRef = storage.reference()
+                let mapRef = storageRef.child("map")
+                mapRef.putData(data)
+//                try data.write(to: self.mapSaveURL, options: [.atomic])
                 DispatchQueue.main.async {
                     self.loadExperienceButton.isHidden = false
                     self.loadExperienceButton.isEnabled = true
@@ -507,14 +512,22 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
             // save neighbors
             do {
                 let data = try NSKeyedArchiver.archivedData(withRootObject: self.neighbors, requiringSecureCoding: true)
-                try data.write(to: self.neighborsSaveURL, options: [.atomic])
+//                try data.write(to: self.neighborsSaveURL, options: [.atomic])
+                let storage = Storage.storage()
+                let storageRef = storage.reference()
+                let mapRef = storageRef.child("neighbors")
+                mapRef.putData(data)
             } catch {
                 fatalError("Can't save neighbors: \(error.localizedDescription)")
             }
             // save dict
             do {
                 let data = try NSKeyedArchiver.archivedData(withRootObject: self.dict, requiringSecureCoding: true)
-                try data.write(to: self.dictSaveURL, options: [.atomic])
+                let storage = Storage.storage()
+                let storageRef = storage.reference()
+                let mapRef = storageRef.child("dict")
+                mapRef.putData(data)
+//                try data.write(to: self.dictSaveURL, options: [.atomic])
             } catch {
                 fatalError("Can't save neighbors: \(error.localizedDescription)")
             }
@@ -579,72 +592,135 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
     }
     /// - Tag: RunWithWorldMap
     @IBAction func loadExperience(_ button: UIButton) {
+//        rendered = []
+//        /// - Tag: ReadWorldMap
+//        let worldMap: ARWorldMap = {
+//            guard let data = mapDataFromFile
+//                else { fatalError("Map data should already be verified to exist before Load button is enabled.") }
+//            do {
+//                guard let worldMap = try NSKeyedUnarchiver.unarchivedObject(ofClass: ARWorldMap.self, from: data)
+//                    else { fatalError("No ARWorldMap in archive.") }
+//                return worldMap
+//            } catch {
+//                fatalError("Can't unarchive ARWorldMap from file data: \(error)")
+//            }
+//        }()
+//
+//        print("before")
+//        print(worldMap)
+//        anchors = []
+//        for a in worldMap.anchors{
+//            if (a.name != nil) {
+//                anchors.append(a)
+//            }
+//        }
+//        anchors.sort(by: {$0!.name! < $1!.name!})
+//        print("After")
+//        print(anchors)
+//        print("wm")
+//        print(worldMap)
+//        counter = anchors.count
+//        for _ in 0..<counter {
+//            rendered.append(false)
+//        }
+//        flag = true
+//        // load neighbors
+//
+//        neighbors = {
+//            guard let data = neighborsDataFromFile
+//                else { fatalError("neighbors data should already be verified to exist before Load button is enabled.") }
+//            do {
+//                guard let neighbors = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [[Int]]
+//                    else { fatalError("No neighbors in archive.") }
+//                return neighbors
+//            } catch {
+//                fatalError("Can't unarchive neighbors from file data: \(error)")
+//            }
+//        }()
+//        // load neighbors
+//
+//        dict = {
+//            guard let data = dictDataFromFile
+//                else { fatalError("dict data should already be verified to exist before Load button is enabled.") }
+//            do {
+//                guard let dict = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [String : Int]
+//                    else { fatalError("No dict in archive.") }
+//                return dict
+//            } catch {
+//                fatalError("Can't unarchive dict from file data: \(error)")
+//            }
+//        }()
+//
+//        let configuration = self.defaultConfiguration // this app's standard world tracking settings
+//        configuration.initialWorldMap = worldMap
+//        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+//
+//        isRelocalizingMap = false
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let mapRef = storageRef.child("map")
         rendered = []
-        /// - Tag: ReadWorldMap
-        let worldMap: ARWorldMap = {
-            guard let data = mapDataFromFile
-                else { fatalError("Map data should already be verified to exist before Load button is enabled.") }
-            do {
-                guard let worldMap = try NSKeyedUnarchiver.unarchivedObject(ofClass: ARWorldMap.self, from: data)
+        mapRef.getData(maxSize: 20 * 1024 * 1024) { (data, error) in
+            let worldMap: ARWorldMap = {
+                do{
+                guard let worldMap = try NSKeyedUnarchiver.unarchivedObject(ofClass: ARWorldMap.self, from: data!)
                     else { fatalError("No ARWorldMap in archive.") }
                 return worldMap
             } catch {
                 fatalError("Can't unarchive ARWorldMap from file data: \(error)")
             }
-        }()
-        
-        print("before")
-        print(worldMap)
-        anchors = []
-        for a in worldMap.anchors{
-            if (a.name != nil) {
-                anchors.append(a)
+            }()
+
+            self.anchors = []
+            for a in worldMap.anchors{
+                if (a.name != nil) {
+                    self.anchors.append(a)
+                }
+            }
+            self.anchors.sort(by: {$0!.name! < $1!.name!})
+
+            self.counter = self.anchors.count
+            for _ in 0..<self.counter {
+                self.rendered.append(false)
+            }
+            self.flag = true
+
+            //neighbors
+            let neighborRef = storageRef.child("neighbors")
+            neighborRef.getData(maxSize: 1024 * 1024){ (data, error) in
+                self.neighbors = {
+                    do {
+                        guard let neighbors = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [[Int]]
+                            else { fatalError("No neighbors in archive.") }
+                        return neighbors
+                    } catch {
+                        fatalError("Can't unarchive neighbors from file data: \(error)")
+                    }
+                }()
+                let dictRef = storageRef.child("dict")
+                dictRef.getData(maxSize: 1024 * 1024) {(data, error) in
+                    self.dict = {
+                        do {
+                            guard let dict = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as? [String : Int]
+                                else { fatalError("No dict in archive.") }
+                            return dict
+                        } catch {
+                            fatalError("Can't unarchive dict from file data: \(error)")
+                        }
+                    }()
+
+                    let configuration = self.defaultConfiguration // this app's standard world tracking settings
+                    configuration.initialWorldMap = worldMap
+                    self.sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+
+                    self.isRelocalizingMap = false
+                }
             }
         }
-        anchors.sort(by: {$0!.name! < $1!.name!})
-        print("After")
-        print(anchors)
-        print("wm")
-        print(worldMap)
-        counter = anchors.count
-        for _ in 0..<counter {
-            rendered.append(false)
-        }
-        flag = true
-        // load neighbors
-        
-        neighbors = {
-            guard let data = neighborsDataFromFile
-                else { fatalError("neighbors data should already be verified to exist before Load button is enabled.") }
-            do {
-                guard let neighbors = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [[Int]]
-                    else { fatalError("No neighbors in archive.") }
-                return neighbors
-            } catch {
-                fatalError("Can't unarchive neighbors from file data: \(error)")
-            }
-        }()
-        // load neighbors
-        
-        dict = {
-            guard let data = dictDataFromFile
-                else { fatalError("dict data should already be verified to exist before Load button is enabled.") }
-            do {
-                guard let dict = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [String : Int]
-                    else { fatalError("No dict in archive.") }
-                return dict
-            } catch {
-                fatalError("Can't unarchive dict from file data: \(error)")
-            }
-        }()
-        
-        let configuration = self.defaultConfiguration // this app's standard world tracking settings
-        configuration.initialWorldMap = worldMap
-        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-
-        isRelocalizingMap = false
-    }
-
+}
+            
+            
+    
     // MARK: - AR session management
     
     var isRelocalizingMap = false

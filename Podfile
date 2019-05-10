@@ -7,4 +7,8 @@ pod 'GoogleSignIn'
 
 pod 'GoogleAnalytics'
 
+pod 'Firebase/Core'
+
+pod 'Firebase/Storage'
+
 end
