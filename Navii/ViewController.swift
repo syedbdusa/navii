@@ -43,6 +43,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchTerms.count
     }
+    @IBAction func editingBegan(_ sender: Any) {
+        tblSearchList.isHidden = false
+    }
+    @IBAction func editingEnded(_ sender: Any) {
+        tblSearchList.isHidden = true
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
     
@@ -137,6 +143,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
         if mapDataFromFile != nil {
             self.loadExperienceButton.isHidden = false
         }
+        tblSearchList.isHidden = true
         
     }
     

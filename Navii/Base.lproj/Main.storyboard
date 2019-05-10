@@ -32,6 +32,10 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editingBegan:" destination="7dh-A0-qGE" eventType="editingDidBegin" id="3Nf-N9-8Zt"/>
+                                    <action selector="editingEnded:" destination="7dh-A0-qGE" eventType="editingDidEnd" id="IQ0-Rz-rwV"/>
+                                </connections>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7n1-lm-7Eq">
                                 <rect key="frame" x="137.66666666666666" y="788" width="138.99999999999997" height="34"/>
@@ -107,7 +111,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mapping: Limited Tracking: Initializing" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aD6-EU-VHg">
-                                            <rect key="frame" x="7.9999999999999858" y="8" width="150.66666666666663" height="40.666666666666664"/>
+                                            <rect key="frame" x="8" y="8" width="150.66666666666666" height="40.666666666666664"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
