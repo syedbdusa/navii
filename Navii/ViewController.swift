@@ -111,7 +111,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
     }
     @IBAction func searchRecordstest(_ textField: UITextField) {
         self.searchTerms.removeAll()
-        print("REACHED THIS")
         if textField.text?.count != 0 {
             for term in dict.keys {
                 if let requested = textField.text {
@@ -138,7 +137,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
         signInButton.center = view.center
         tblSearchList.delegate = self
         tblSearchList.dataSource = self
-        searchTerms.append("TITTIES")
         EndNode.addTarget(self, action: #selector(searchRecordstest(_ :)), for: .editingChanged)
         if mapDataFromFile != nil {
             self.loadExperienceButton.isHidden = false
