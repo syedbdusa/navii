@@ -40,10 +40,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
     
     @IBOutlet weak var SignInTest: GIDSignInButton!
     var searchTerms:[String] = Array()
+    var recentList:[String] = Array()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchTerms.count
     }
     @IBAction func editingBegan(_ sender: Any) {
+        searchRecordstest(EndNode)
         tblSearchList.isHidden = false
     }
     @IBAction func editingEnded(_ sender: Any) {
@@ -103,6 +105,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
     var flip = true
     var added_neighbors = false
     var lineNodes: [SCNNode] = []
+    
     // MARK: - View Life Cycle
     
     // Lock the orientation of the app to the orientation in which it is launched
@@ -112,7 +115,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
     @IBAction func searchRecordstest(_ textField: UITextField) {
         self.searchTerms.removeAll()
         if textField.text?.count != 0 {
-            for term in dict.keys {
+            for term in recentList {
                 if let requested = textField.text {
                     let range = term.lowercased().range(of: requested, options: .caseInsensitive, range: nil, locale: nil)
                     if range != nil {
@@ -120,6 +123,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
                     }
                 }
                 
+            }
+        } else {
+            for term in recentList {
+                self.searchTerms.append(term)
             }
         }
         print(self.searchTerms)
@@ -378,6 +385,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
         self.view.endEditing(true)
         let name = cupNameDecider.text!
         dict[name] = counter - 1
+        recentList.append(name)
         print(dict)
     }
     @IBAction func generateRoute(_ sender: UIButton) {
@@ -409,6 +417,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate, UI
             }
             
             if let val = dict[endString] {
+                let recentI = recentList.firstIndex(of: endString)
+                recentList.remove(at: recentI!)
+                recentList.insert(endString,at: 0)
                 navigate(start: minPlace,end: val)
             } else if let b = Int(endString){
                 if b >= counter || b < 0{
